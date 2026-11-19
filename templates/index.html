@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>Gemini Chat App</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+```
+
+</head>
+
+<body>
+
+```
+<div class="app-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="sidebar-header">
+            <h2>Gemini Chat</h2>
+        </div>
+
+        <button class="new-chat-btn" onclick="location.reload()">
+            + New Chat
+        </button>
+
+        <div class="chat-history">
+            <p>Recent Chats</p>
+        </div>
+
+    </aside>
+
+
+    <!-- Main Chat Area -->
+    <main class="chat-container">
+
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <h3>Gemini AI</h3>
+        </header>
+
+
+        <!-- Chat Messages -->
+        <div id="chat-box" class="chat-box">
+
+            <div class="welcome-message">
+                <h1>How can I help you?</h1>
+                <p>Ask me anything related to property.</p>
+            </div>
+
+        </div>
+
+
+        <!-- Input Area -->
+        <div class="input-container">
+
+            <div class="input-area">
+
+                <input
+                    type="text"
+                    id="message"
+                    placeholder="Message Gemini..."
+                    onkeypress="handleKeyPress(event)"
+                >
+
+                <button
+                    type="button"
+                    class="mic-btn"
+                    onclick="startListening()"
+                >
+                    🎤
+                </button>
+
+                <button
+                    type="button"
+                    class="send-btn"
+                    onclick="sendMessage()"
+                >
+                    ➤
+                </button>
+
+            </div>
+
+            <p class="disclaimer">
+                Gemini may make mistakes. Check important information.
+            </p>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+```
+
+</body>
+</html>

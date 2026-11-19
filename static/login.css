@@ -1,0 +1,394 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+/* =========================
+   MAIN BACKGROUND
+========================= */
+
+.page {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 15% 55%,
+            rgba(31, 83, 145, 0.28),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 55%,
+            rgba(25, 70, 125, 0.25),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #050e1b 0%,
+            #0a1727 50%,
+            #050e1b 100%
+        );
+}
+
+/* =========================
+   PROPERTY BUILDINGS
+========================= */
+
+.building {
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+
+    pointer-events: none;
+
+    border: 1px solid rgba(85, 145, 205, 0.25);
+
+    background-color: rgba(15, 38, 65, 0.55);
+
+    background-image:
+        repeating-linear-gradient(
+            to right,
+            transparent 0,
+            transparent 28px,
+            rgba(100, 170, 225, 0.16) 29px,
+            transparent 30px
+        ),
+        repeating-linear-gradient(
+            to bottom,
+            transparent 0,
+            transparent 38px,
+            rgba(100, 170, 225, 0.14) 39px,
+            transparent 40px
+        );
+}
+
+/* Left building */
+
+.building-left {
+    left: -35px;
+    width: 290px;
+    height: 390px;
+
+    opacity: 0.65;
+
+    clip-path: polygon(
+        0 18%,
+        38% 5%,
+        72% 15%,
+        100% 8%,
+        100% 100%,
+        0 100%
+    );
+}
+
+/* Right building */
+
+.building-right {
+    right: -35px;
+    width: 330px;
+    height: 430px;
+
+    opacity: 0.65;
+
+    clip-path: polygon(
+        0 18%,
+        28% 8%,
+        60% 15%,
+        100% 0,
+        100% 100%,
+        0 100%
+    );
+}
+
+/* =========================
+   SUBTLE CITY GLOW
+========================= */
+
+.property-lines {
+    position: absolute;
+    inset: 0;
+
+    z-index: 0;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse at 20% 100%,
+            rgba(30, 100, 180, 0.16),
+            transparent 45%
+        ),
+        radial-gradient(
+            ellipse at 80% 100%,
+            rgba(30, 100, 180, 0.14),
+            transparent 45%
+        );
+}
+
+/* =========================
+   LOGIN CARD
+========================= */
+
+.login-card {
+    position: relative;
+    z-index: 5;
+
+    width: min(520px, 90vw);
+    max-height: 90vh;
+
+    padding: 42px 44px;
+
+    background: rgba(7, 18, 31, 0.96);
+
+    border: 1px solid rgba(105, 150, 195, 0.4);
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.03);
+
+    backdrop-filter: blur(14px);
+}
+
+/* =========================
+   HEADING
+========================= */
+
+h1 {
+    text-align: center;
+
+    font-size: 36px;
+    font-weight: 650;
+
+    letter-spacing: -1px;
+
+    color: #f5f7fa;
+}
+
+.accent-line {
+    width: 60px;
+    height: 3px;
+
+    margin: 18px auto 36px;
+
+    border-radius: 10px;
+
+    background: #1677ff;
+
+    box-shadow:
+        0 0 12px rgba(22, 119, 255, 0.35);
+}
+
+/* =========================
+   FORM
+========================= */
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+label {
+    display: block;
+
+    margin-bottom: 9px;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    color: #f1f4f8;
+}
+
+/* =========================
+   INPUT
+========================= */
+
+.input-wrapper {
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+
+    border: 1px solid rgba(100, 125, 155, 0.38);
+
+    border-radius: 10px;
+
+    background: #111f30;
+
+    transition: 0.2s ease;
+}
+
+.input-wrapper:focus-within {
+    border-color: #1677ff;
+
+    box-shadow:
+        0 0 0 2px rgba(22, 119, 255, 0.12);
+}
+
+.input-icon {
+    width: 22px;
+    height: 22px;
+
+    margin-left: 17px;
+
+    flex-shrink: 0;
+
+    color: #aebdce;
+}
+
+.input-wrapper input {
+    width: 100%;
+    height: 100%;
+
+    padding: 0 15px;
+
+    border: none;
+    outline: none;
+
+    background: transparent !important;
+
+    color: #ffffff !important;
+
+    font-size: 16px;
+}
+
+.input-wrapper input::placeholder {
+    color: #8d9bad;
+}
+
+/* Fix Chrome autofill */
+
+.input-wrapper input:-webkit-autofill,
+.input-wrapper input:-webkit-autofill:hover,
+.input-wrapper input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #ffffff !important;
+
+    -webkit-box-shadow:
+        0 0 0px 1000px #111f30 inset !important;
+
+    box-shadow:
+        0 0 0px 1000px #111f30 inset !important;
+
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* =========================
+   EYE BUTTON
+========================= */
+
+.eye-button {
+    width: 48px;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+
+    background: transparent;
+
+    color: #aebdce;
+
+    cursor: pointer;
+
+    flex-shrink: 0;
+}
+
+.eye-button:hover {
+    color: #ffffff;
+}
+
+.eye-button svg {
+    width: 22px;
+    height: 22px;
+}
+
+/* =========================
+   LOGIN BUTTON
+========================= */
+
+.login-button {
+    width: 100%;
+    height: 60px;
+
+    margin-top: 4px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        90deg,
+        #1475f5,
+        #0649d9
+    );
+
+    color: #ffffff;
+
+    font-size: 17px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.login-button:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 25px rgba(20, 117, 245, 0.25);
+}
+
+.login-button:active {
+    transform: translateY(0);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+
+    .login-card {
+        width: calc(100% - 32px);
+
+        padding: 38px 24px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .accent-line {
+        margin-bottom: 32px;
+    }
+
+    .input-wrapper,
+    .login-button {
+        height: 58px;
+    }
+
+    .building-left,
+    .building-right {
+        opacity: 0.3;
+    }
+}
