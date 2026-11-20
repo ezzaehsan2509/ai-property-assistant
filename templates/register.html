@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account | PropertyAI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='login.css') }}">
+</head>
+
+<body>
+
+    <div class="register-page">
+
+        <div class="register-container">
+
+            <!-- LEFT SECTION -->
+            <div class="register-welcome">
+
+                <div class="register-logo">PropertyAI</div>
+
+                <div class="welcome-content">
+
+                    <h1>Welcome!</h1>
+
+                    <div class="welcome-line"></div>
+
+                    <p>
+                        Discover smarter property decisions with
+                        PropertyAI. Explore real estate information,
+                        ask questions, and get AI-powered assistance
+                        through one simple platform.
+                    </p>
+
+                    <div class="welcome-features">
+                        <div>✦ AI-Powered Property Assistance</div>
+                        <div>✦ Real Estate Question Support</div>
+                        <div>✦ Simple and Interactive Experience</div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT SECTION -->
+            <div class="register-form-section">
+
+                <div class="register-card">
+
+                    <h2>Create Account</h2>
+
+                    <p class="register-subtitle">
+                        Join PropertyAI and get started
+                    </p>
+
+                    <div class="register-accent"></div>
+
+                    {% if error %}
+                        <p class="register-error">{{ error }}</p>
+                    {% endif %}
+
+                    <form action="/register" method="POST">
+
+                        <div class="register-field">
+
+                            <label for="name">Full Name</label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Enter your full name"
+                                maxlength="100"
+                                autocomplete="name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="register-field">
+
+                            <label for="email">Email Address</label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email"
+                                maxlength="120"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="register-field">
+
+                            <label for="password">Password</label>
+
+                            <div class="register-password">
+
+                                <input
+                                    type="password"
+                                    id="password"
+                                    name="password"
+                                    placeholder="Create a password"
+                                    minlength="8"
+                                    autocomplete="new-password"
+                                    required
+                                >
+
+                                <button
+                                    type="button"
+                                    onclick="togglePassword()"
+                                    class="register-eye"
+                                >
+                                    ◉
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <button type="submit" class="register-submit">
+                            Create Account
+                        </button>
+
+                    </form>
+
+                    <p class="register-login">
+                        Already have an account?
+                        <a href="/">Login</a>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function togglePassword() {
+
+            const password = document.getElementById("password");
+
+            if (password.type === "password") {
+                password.type = "text";
+            } else {
+                password.type = "password";
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
