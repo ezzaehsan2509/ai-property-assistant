@@ -32,13 +32,32 @@ if not app.secret_key:
 DATABASE_URL = os.environ.get("DATABASE_URL")
 
 if DATABASE_URL:
-    DATABASE_URL = DATABASE_URL.replace(
-        "postgres://",
-        "postgresql://",
-        1
-    )
+
+    if DATABASE_URL.startswith("postgresql+psycopg://"):
+        DATABASE_URL = DATABASE_URL.replace(
+            "postgresql+psycopg://",
+            "postgresql+psycopg2://",
+            1
+        )
+
+    elif DATABASE_URL.startswith("postgres://"):
+        DATABASE_URL = DATABASE_URL.replace(
+            "postgres://",
+            "postgresql+psycopg2://",
+            1
+        )
+
+    elif DATABASE_URL.startswith("postgresql://"):
+        DATABASE_URL = DATABASE_URL.replace(
+            "postgresql://",
+            "postgresql+psycopg2://",
+            1
+        )
 
     app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
+
+else:
+    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///users.db"
 
 else:
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///users.db"
