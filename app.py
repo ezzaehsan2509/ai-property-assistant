@@ -1,4 +1,3 @@
-
 import os
 
 from flask import (
@@ -28,7 +27,6 @@ if not app.secret_key:
 
 
 # DATABASE CONFIGURATION
-# DATABASE CONFIGURATION
 DATABASE_URL = os.environ.get("DATABASE_URL")
 
 if DATABASE_URL:
@@ -55,9 +53,6 @@ if DATABASE_URL:
         )
 
     app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
-
-else:
-    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///users.db"
 
 else:
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///users.db"
@@ -157,13 +152,6 @@ def register():
         )
 
     # NAME VALIDATION
-    if len(name) > 100:
-        return render_template(
-            "register.html",
-            error="Name is too long."
-        )
-
-    # EMAIL VALIDATION
     if len(name) > 100:
         return render_template(
             "register.html",
